@@ -19,7 +19,8 @@ jobs:
           git branch 
           ls -alt
           whoami || true
-          lscpu || true
+          sysctl -a | grep machdep.cpu || true
+          system_profiler SPHardwareDataType | grep " Memory:" || true
           ls -alt /usr/bin | grep -i xcode
           gcc --version || true
           which brew || true
@@ -52,8 +53,10 @@ jobs:
           # ls -alt src/release/dragon*tar.gz
           # podman ps -a
           # podman kill $my_container
-      # - name: Upload
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: dragon-macos-pkg
-      #     path: src/release/dragon*macos.tar.gz
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: dragon-macos-pkg
+          path: src/dist/dragonhpc*whl
+          # sample path: src/dist/dragonhpc-0.13.1-cp314-cp314-macosx_26_0_arm64.whl
+          # sample runner absolute path: /Users/runner/work/dragon/dragon/src/...
