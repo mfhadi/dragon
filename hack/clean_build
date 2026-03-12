@@ -52,14 +52,11 @@ PYTHON_VERSION=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.
 PYTHON_MAJOR_VERSION=`python -c 'import sys; print(sys.version_info[0])'`
 PYTHON_MINOR_VERSION=`python -c 'import sys; print(sys.version_info[1])'`
 
-ls -alt /Users/runner/work/dragon-build-sandbox/dragon-build-sandbox/src/release/*tar.gz
-
 # Make fake RPMs
 # mkdir -p /workspace/RPMS/centos7/py${PYTHON_MAJOR_VERSION}.${PYTHON_MINOR_VERSION}
 cp src/release/dragon-${DRAGON_VERSION}-${GITHASH}.tar.gz \
     src/release/dragon-${DRAGON_VERSION}-py${PYTHON_VERSION}-${GITHASH}.macos.tar.gz || true
 
-ls -alt /Users/runner/work/dragon-build-sandbox/dragon-build-sandbox/src/release/*.tar.gz
 
 
 

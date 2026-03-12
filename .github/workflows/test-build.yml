@@ -36,7 +36,7 @@ jobs:
           export DRAGON_BASE_DIR=$PWD/src
           source hack/setup
           source hack/clean_build
-          find / 2>&1 | grep -v denied | grep whl$ | grep dragon || true
+          find / 2>&1 | grep -v denied | grep -e tar.gz$ -e whl$ | grep dragon || true
           # sudo apt update
           # sudo apt install podman -y
           # podman --version
