@@ -20,3 +20,47 @@ make -C src distclean
 
 echo "Building source code."
 make -C src build
+
+# Run unit tests
+# make -C test test
+# pushd test
+# python3 test_c_files.py -v -f || true
+# python3 test_channels.py -v -f || true
+# python3 test_utils.py -v -f || true
+# python3 test_connection.py -v -f || true
+# python3 test_infrastructure.py -v -f || true
+# python3 test_globalservices.py -v -f || true
+# python3 test_policy.py -v -f || true
+# python3 test_shepherd.py -v -f || true
+# python3 test_transport.py -v -f || true
+# python3 test_integration_shep_gs.py -v -f || true
+# python3 test_dragon_cleanup.py -v -f || true
+# skipped = $(wildcard transport/tcp/test_*.py) + transport/test_lsif.py + others
+# popd
+
+# Build release
+ls -alt src/dist || true
+rm -fr src/dist && make -C src release
+
+echo "BUILD COMPLETE"
+
+ls -alt src/release/
+
+GITHASH="$(git rev-parse --short HEAD)"
+GITBRANCH="$(git branch --show)"
+PYTHON_VERSION=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}.{2}".format(*version))'`
+PYTHON_MAJOR_VERSION=`python -c 'import sys; print(sys.version_info[0])'`
+PYTHON_MINOR_VERSION=`python -c 'import sys; print(sys.version_info[1])'`
+
+ls -alt /Users/runner/work/dragon-build-sandbox/dragon-build-sandbox/src/release/*tar.gz
+
+# Make fake RPMs
+# mkdir -p /workspace/RPMS/centos7/py${PYTHON_MAJOR_VERSION}.${PYTHON_MINOR_VERSION}
+cp src/release/dragon-${DRAGON_VERSION}-${GITHASH}.tar.gz \
+    src/release/dragon-${DRAGON_VERSION}-py${PYTHON_VERSION}-${GITHASH}.macos.tar.gz || true
+
+ls -alt /Users/runner/work/dragon-build-sandbox/dragon-build-sandbox/src/release/*.tar.gz
+
+
+
+
