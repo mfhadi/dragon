@@ -3,15 +3,33 @@
 HACK_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
 source ${HACK_DIR}/VARIABLES
 
-env_str='_env'
-if [ ! -d ${HACK_DIR}/${env_str} ]; then
-    python3 -m venv _env;
-fi
+# env_str='_env'
+# if [ ! -d ${HACK_DIR}/${env_str} ]; then
+#     python3 -m venv _env;
+# fi
+# 
+# ppath=`which python3`
+# 
+# if [[ "$ppath" != *"$env_str"* ]]; then
+# 
+#     echo "Activating environment."
+#     . _env/bin/activate
+# fi
 
-ppath=`which python3`
 
-if [[ "$ppath" != *"$env_str"* ]]; then
-
-    echo "Activating environment."
-    . _env/bin/activate
-fi
+# Install conda via miniforge
+mkdir miniforge
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Darwin-arm64.sh -O $PWD/miniforge/miniforge.sh
+bash $PWD/miniforge/miniforge.sh -b -u -p $PWD/miniforge
+rm -f $PWD/miniforge/miniforge.sh
+source $PWD/miniforge/bin/activate
+conda init --all
+source ~/.bashrc
+conda config --show channels
+conda create -y -n _env python=3.12
+conda activate _env
+conda remove -y zstd || true
+conda remove -y libstdcxx || true
+conda remove -y libstdcxx-ng || true
+python3 --version
+which python3
