@@ -35,7 +35,7 @@ jobs:
           which autoconf || true
           which libtool || true
           export DRAGON_BASE_DIR=$PWD/src
-          source ./setup
+          source .github/workflows/setup
           #
           # source hack/setup
           # source hack/clean_build
