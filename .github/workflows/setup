@@ -1,0 +1,22 @@
+# Install conda via miniforge
+mkdir miniforge
+forge_script="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Darwin-arm64.sh"
+wget $forge_script -O $PWD/miniforge/miniforge.sh
+bash $PWD/miniforge/miniforge.sh -b -u -p $PWD/miniforge
+rm -f $PWD/miniforge/miniforge.sh
+source $PWD/miniforge/bin/activate
+conda init --all
+echo $0
+ls -alt ~
+source ~/.bashrc || true
+source ~/.zshrc || true
+# conda config --show channels
+conda create -y -n _env python=3.12
+# conda activate _env
+# conda remove -y zstd || true
+# conda remove -y libstdcxx || true
+# conda remove -y libstdcxx-ng || true
+conda info --envs
+python3 --version
+which python3
+echo $CONDA_PREFIX
