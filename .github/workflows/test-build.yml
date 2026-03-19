@@ -56,10 +56,10 @@ jobs:
           # ls -alt src/release/dragon*tar.gz
           # podman ps -a
           # podman kill $my_container
-      # - name: Upload
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: dragon-macos-pkg
-      #     path: src/dist/dragonhpc*whl
-      #     # sample path: src/dist/dragonhpc-0.13.1-cp314-cp314-macosx_26_0_arm64.whl
-      #     # sample runner absolute path: /Users/runner/work/dragon/dragon/src/...
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: dragon-macos-pkg
+          path: src/dist/dragonhpc*whl
+          # sample path: src/dist/dragonhpc-0.13.1-cp314-cp314-macosx_26_0_arm64.whl
+          # sample runner absolute path: /Users/runner/work/dragon/dragon/src/...
