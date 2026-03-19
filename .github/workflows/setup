@@ -21,6 +21,7 @@ source ~/.bashrc
 # conda remove -y libstdcxx-ng || true
 conda activate _env
 conda info --envs
+export PATH=/Users/runner/work/dragon/dragon/miniforge/condabin:$PATH
 python3 --version
 which python3
 which python
