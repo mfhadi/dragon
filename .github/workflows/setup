@@ -19,7 +19,7 @@ source ~/.bashrc
 # conda remove -y zstd || true
 # conda remove -y libstdcxx || true
 # conda remove -y libstdcxx-ng || true
-# conda activate _env
+conda activate _env
 conda info --envs
 python3 --version
 which python3
