@@ -22,7 +22,7 @@ source ~/.bashrc
 conda activate _env
 conda info --envs
 export PATH=/Users/runner/work/dragon/dragon/miniforge/condabin:$PATH
-find /Users/runner/work/dragon/dragon/miniforge/condabin | grep -i python
+find /Users/runner/work/dragon/dragon/miniforge | grep -i python
 python3 --version
 which python3
 which python
