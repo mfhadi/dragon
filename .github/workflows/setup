@@ -7,15 +7,18 @@ rm -f $PWD/miniforge/miniforge.sh
 source $PWD/miniforge/bin/activate
 conda init --all
 echo $0
+$(echo $SHELL) --version
 ls -alt ~
 source ~/.bashrc || true
 source ~/.zshrc || true
+grep -i conda ~/* || true
 # conda config --show channels
 conda create -y -n _env python=3.12
 # conda activate _env
 # conda remove -y zstd || true
 # conda remove -y libstdcxx || true
 # conda remove -y libstdcxx-ng || true
+conda activate _env
 conda info --envs
 python3 --version
 which python3
