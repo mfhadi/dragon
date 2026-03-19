@@ -14,11 +14,12 @@ source ~/.zshrc || true
 grep conda ~/.* || true
 # conda config --show channels
 conda create -y -n _env python=3.12
+source ~/.bashrc
 # conda activate _env
 # conda remove -y zstd || true
 # conda remove -y libstdcxx || true
 # conda remove -y libstdcxx-ng || true
-conda activate _env
+# conda activate _env
 conda info --envs
 python3 --version
 which python3
