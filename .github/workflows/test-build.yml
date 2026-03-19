@@ -37,10 +37,9 @@ jobs:
           which libtool || true
           export DRAGON_BASE_DIR=$PWD/src
           source .github/workflows/setup
-          #
-          # source hack/setup
-          # source hack/clean_build
-          # find / 2>&1 | grep -v denied | grep -e tar.gz$ -e whl$ | grep dragon || true
+          source hack/setup
+          source hack/clean_build
+          find / 2>&1 | grep -v denied | grep -e tar.gz$ -e whl$ | grep dragon || true
           #
           # sudo apt update
           # sudo apt install podman -y
