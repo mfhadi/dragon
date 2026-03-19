@@ -11,7 +11,7 @@ $(echo $SHELL) --version
 ls -alt ~
 source ~/.bashrc || true
 source ~/.zshrc || true
-grep -i conda ~/* || true
+grep conda ~/.* || true
 # conda config --show channels
 conda create -y -n _env python=3.12
 # conda activate _env
@@ -22,4 +22,5 @@ conda activate _env
 conda info --envs
 python3 --version
 which python3
+which python
 echo $CONDA_PREFIX
