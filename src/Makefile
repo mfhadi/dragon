@@ -182,6 +182,8 @@ release:
 	cp ../src/dragon/telemetry/imports/*.yaml  release/dragon/examples/dragon_telemetry
 	cp ../src/dragon/telemetry/imports/*.json  release/dragon/examples/dragon_telemetry
 # Repair the wheel to use manylinux tag before copying it to release and remove the un-tagged version
+	@echo "Running auditwheel or delocate-wheel on our whl-file"
+	@echo "with input path $(abspath release/dragon)"
 	@if [ "$(OS)" != "Darwin" ]; then \
 		patchelf --version; \
 		auditwheel repair -w $(abspath release/dragon) $(abspath release/dragon)/dragonhpc*-linux_*.whl; \
