@@ -189,7 +189,7 @@ release:
 		auditwheel repair -w $(abspath release/dragon) $(abspath release/dragon)/dragonhpc*-linux_*.whl; \
 		rm -rf $(abspath release/dragon)/dragonhpc*-linux_*whl; \
 	else \
-		DYLD_LIBRARY_PATH=lib delocate-wheel -w $(abspath release/dragon) $(abspath release/dragon)/dragonhpc*-macosx_*.whl; \
+		DYLD_LIBRARY_PATH=lib delocate-wheel -v -w $(abspath release/dragon) $(abspath release/dragon)/dragonhpc*-macosx_*.whl; \
 		rm -rf $(abspath release/dragon)/dragonhpc*-macosx_*whl; \
 	fi
 	mv release/dragon release/dragon-$(DRAGON_VERSION)
