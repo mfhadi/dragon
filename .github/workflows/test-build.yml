@@ -31,6 +31,8 @@ jobs:
           which make || true
           which automake || true
           brew install autoconf automake libtool
+          brew install argp-standalone
+          brew ls argp-standalone
           which make || true
           which automake || true
           which autoconf || true
